@@ -5,13 +5,9 @@ const userController =require( '../controllers/userController');
 
 
 router.post("/createUser",async (req,res)=>{
-
     try{
         console.log('create User - route');
-
         await userController.createUser(req,res);
-
-
     }catch(err){
         return res.status(500).json({
             msg: "error occured"
@@ -21,18 +17,14 @@ router.post("/createUser",async (req,res)=>{
 });
 
 router.get('/allUsers',async(req,res)=>{
-
     try{
         console.log('get Users - route');
-
         const users= await userController.getAllUsers(req,res);
-
         return res.status(200).json({
             users
-        })
-
-
+        });
     }catch(err){
+        console.log("error ", err.message)
         return res.status(500).json({
             msg: "error occured"
         })
