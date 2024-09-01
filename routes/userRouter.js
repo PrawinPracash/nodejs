@@ -20,12 +20,9 @@ router.get('/allUsers',async(req,res)=>{
     try{
         console.log('get Users - route');
         const users= await userController.getAllUsers(req,res);
-
         return res.status(200).json({
             users
-        })
-
-
+        });
     }catch(err){
         console.log("error ", err.message)
         return res.status(500).json({
